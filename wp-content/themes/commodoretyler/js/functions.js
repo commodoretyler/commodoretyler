@@ -14,16 +14,12 @@
     var _this = $(this);
     function doResize(){
       windowHeight = $(window).height();
-      $(".cover").each(function(i,v){
-        $(this).css({
-          'height' : windowHeight + 'px'
-        });
-     });
+      $(_this).css({ 'height' : windowHeight + 'px' });
     }
     $(window).bind("resize", doResize);
     doResize();
   }
-  //$('#covers').coverSizer();
+  $('.tyler-moore').coverSizer();
 
 
 

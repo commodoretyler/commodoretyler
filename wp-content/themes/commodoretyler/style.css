@@ -99,12 +99,12 @@ body {
 }
 
 a {
-	color: #24890d;
+	color: #b95435;
 	text-decoration: none;
 }
 
 a:focus {
-	outline: thin dotted;
+	outline: none;
 }
 
 a:hover,
@@ -114,7 +114,7 @@ a:active {
 
 a:active,
 a:hover {
-	color: #41a62a;
+	color: #973213;
 }
 
 h1,
@@ -465,12 +465,10 @@ hr {
 html,
 body {
   width: 100%;
-  height: 100px;
 }
 .site,
 .site-main,
 .main-content {
-  height: 100%;
 }
 .cover {
   width: 100%;
@@ -551,7 +549,9 @@ body {
  *
  */
 .cover.tyler-moore {
-  background: #b95435;
+  background: #b95435 url('images/header.png') no-repeat center top;
+  background-size: 100% 100%;
+  padding: 10% 0 0;
 }
 .cover.tyler-moore h1,
 .cover.tyler-moore h2,
@@ -605,18 +605,27 @@ body {
  *
  */
 .portfolio-entry {
-  width: 31%;
-  padding: 0 1%;
-  margin: 0;
-  float: left;
+  width: 80%;
+  padding: 2em 1%;
+  margin: 3em auto;
+  border-bottom: 5px dotted #555555;
+}
+.portfolio-entry:last-child {
+  border: none;
 }
 .portfolio-entry .portfolio-thumb {
   width: 100%;
   border: 5px solid #ffffff;
 }
+.portfolio-entry .portfolio-thumb img {
+  width: 100%;
+  height: auto;
+}
 .portfolio-entry .skill-set-icons {
-  margin: 0;
+  margin: 1em 0;
   padding: 0;
+  width: 100%;
+  text-align: center;
 }
 .portfolio-entry .skill-set-icons .skill-set {
   list-style: none;
@@ -631,6 +640,46 @@ body {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
+}
+.portfolio-content {
+  width: 60%;
+  margin: 1em auto;
+  text-align: center;
+}
+
+
+/**
+ *
+ *  Footer
+ *
+ */
+.site-footer {
+  clear: both;
+  background: #b95435;
+  padding: 1em 0;
+}
+.contact-icons {
+  margin: 0 auto;
+  width: 80%;
+  padding: 0;
+  text-align: center;
+}
+.contact-icons li {
+  text-align: center;
+  list-style: none;
+  font-size: 24px;
+  width: 50px;
+  padding: 13px 0;
+  line-height: 24px;
+  margin: 1em;
+  display: inline-block;
+  background: #a7482b;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.contact-icons li a {
+  color: #fff;
 }
 
 @media all (max-width="1024") {

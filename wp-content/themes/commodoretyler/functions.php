@@ -44,6 +44,7 @@ function commo_setup() {
 	add_image_size( 'commo-full-width', 1038, 576, true );
 	add_image_size( 'work_thumb', 500, 300, true );
 
+
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'primary'   => __( 'Top primary menu', 'commo' ),
@@ -73,8 +74,8 @@ function commo_widgets_init() {
 	require get_template_directory() . '/inc/widgets.php';
 
 	register_sidebar( array(
-		'name'          => __( 'Primary Sidebar', 'commo' ),
-		'id'            => 'sidebar-1',
+		'name'          => __( 'Home Page Footer', 'commo' ),
+		'id'            => 'footer',
 		'description'   => __( 'Main sidebar that appears on the left.', 'commo' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -183,7 +184,7 @@ endif;
 
 
 function custom_post_types(){
-  $labels = array(
+  $cover_labels = array(
     'name'          =>      'Cover Panels',
     'singular_name' =>      'Cover Panel',
     'all_items'     =>      'All Panels',
@@ -198,7 +199,7 @@ function custom_post_types(){
 
   register_post_type( 'cover_panel',
     array(
-      'labels'    => $labels,
+      'labels'    => $cover_labels,
       'description' =>  'Cover Panels for the home page',
       'public'      =>  true,
       'exclude_from_search' => true,
@@ -210,13 +211,46 @@ function custom_post_types(){
       'has_archive'         => false
     )
   );
+
+
+  register_taxonomy(
+      'works',
+      'portfolio',
+      array(
+          'label' => __('Portfolio Categories'),
+          'singular_label' => __('Portfolio Category'),
+          'hierarchical' => true,
+          'query_var' => true,
+          'rewrite' => true,
+          'show_in_nav_menus' => true,
+      )
+  );
+
+  register_post_type(
+      'portfolio',
+      array(
+          'label' => __('Portfolio'),
+          'singular_label' => __('Work'),
+          'public' => true,
+          'show_ui' => true,
+          'capability_type' => 'post',
+          'hierarchical' => false,
+          'rewrite' => true,
+          'query_var' => true,
+          'show_in_nav_menus' => true,
+          'menu_position' => 3,
+          'taxonomies' => array('portfolio'),
+          'supports' => array('title', 'editor', 'author', 'thumbnail', 'custom-fields'),
+          '_builtin' => false, // It's a custom post type, not built in!
+  ));
+
 }
 add_action( 'init', 'custom_post_types' );
 
 function portfolio_shortcode( $atts ) {
   ob_start();
   //extract( shortcode_atts() )
-  $portfolio_posts = new WP_Query('category_name=portfolio');
+  $portfolio_posts = new WP_Query('post_type=portfolio');
   if( $portfolio_posts->have_posts() ) :
   ?>
   <div class="portfolio">
@@ -229,7 +263,7 @@ function portfolio_shortcode( $atts ) {
 
       <?php if(has_post_thumbnail($portfolio_posts->post->ID)) : ?>
         <div class="portfolio-thumb">
-        <?php the_post_thumbnail( 'work_thumb' ); ?>
+        <?php the_post_thumbnail( 'commo-full-width' ); ?>
         </div><!-- .portfolio-thumb -->
       <?php endif; ?>
       <?php if(count($icon_meta)): ?>
@@ -241,7 +275,9 @@ function portfolio_shortcode( $atts ) {
           </ul>
         <?php endforeach; // skills icons ?>
       <?php endif; // skills icons ?>
-
+      <div class="portfolio-content">
+        <?php the_content(); ?>
+      </div>
       <div class="splitter" id="splitter-<?php $portfolio_posts->post->ID; ?>">
         <?php // the gallery goes here ?>
       </div><!-- .splitter -->
