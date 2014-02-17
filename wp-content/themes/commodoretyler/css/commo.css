@@ -1,16 +1,16 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?pumsor');
-	src:url('fonts/icomoon.eot?#iefixpumsor') format('embedded-opentype'),
-		url('fonts/icomoon.woff?pumsor') format('woff'),
-		url('fonts/icomoon.ttf?pumsor') format('truetype'),
-		url('fonts/icomoon.svg?pumsor#icomoon') format('svg');
+	font-family: 'commo';
+	src:url('fonts/commo.eot?-l204jt');
+	src:url('fonts/commo.eot?#iefix-l204jt') format('embedded-opentype'),
+		url('fonts/commo.woff?-l204jt') format('woff'),
+		url('fonts/commo.ttf?-l204jt') format('truetype'),
+		url('fonts/commo.svg?-l204jt#commo') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
+	font-family: 'commo';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -29,6 +29,9 @@
 .icon-strategy:before {
 	content: "\e601";
 }
-.icon-code-01:before {
+.icon-code:before {
 	content: "\e602";
+}
+.icon-like:before {
+	content: "\e603";
 }

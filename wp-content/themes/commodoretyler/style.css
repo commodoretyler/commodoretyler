@@ -51,6 +51,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	outline: 0;
 	padding: 0;
 	vertical-align: baseline;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 article,
@@ -471,13 +474,13 @@ body {
 }
 .cover {
   width: 100%;
-  height: 100%;
+  padding: 100px 0;
 }
 
 .wrapper {
   width: 980px;
   margin: 0 auto;
-  padding: 12px;
+  padding: 0 12px;
 }
 
 /**
@@ -491,7 +494,6 @@ body {
   display: block;
   width: 120px;
   background: #ffffff;
-  height: 100px;
   vertical-align: middle;
   text-align: center;
   -webkit-border-radius: 200px;
@@ -500,9 +502,9 @@ body {
   -o-border-radius: 200px;
   border-radius: 200px;
   font-size: 74px;
-  line-height: 1;
+  line-height: 74px;
   margin: 0 auto;
-  padding: 20px 0 0;
+  padding: 23px 0;
 }
 
 
@@ -549,7 +551,6 @@ body {
  *
  */
 .cover.tyler-moore {
-  padding-top: 15%;
   background: #b95435;
 }
 .cover.tyler-moore h1,
@@ -559,11 +560,10 @@ body {
 }
 
 .cover.what-do-you-do-here {
-  padding-top:50px;
   background: #c6c6c6;
 }
 .cover.what-do-you-do-here ul {
-  margin: 0;
+  margin: 3em 0;
   padding: 0;
 }
 .cover.what-do-you-do-here li {
@@ -577,7 +577,61 @@ body {
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
+.cover.skills .skill-icon {
+  font-size: 60px;
+  display: block;
+  text-align: center;
+  background: #ffffff;
+  padding: 45px 0;
+  width: 150px;
+  margin: 24px auto 16px;
+  -webkit-border-radius: 150px 150px 150px 150px;
+  -moz-border-radius: 150px 150px 150px 150px;
+  border-radius: 150px 150px 150px 150px;
+}
 
+.cover.experience {
+  background: #386CB4;
+}
+.cover.work {
+  background: #303030;
+  color: #ffffff;
+}
+
+
+/**
+ *
+ *  Portfolio Work Sample Styles
+ *
+ */
+.portfolio-entry {
+  width: 31%;
+  padding: 0 1%;
+  margin: 0;
+  float: left;
+}
+.portfolio-entry .portfolio-thumb {
+  width: 100%;
+  border: 5px solid #ffffff;
+}
+.portfolio-entry .skill-set-icons {
+  margin: 0;
+  padding: 0;
+}
+.portfolio-entry .skill-set-icons .skill-set {
+  list-style: none;
+  display: inline-block;
+  width: 30px;
+  background: #ffffff;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 6px 0;
+  text-align: center;
+  color: #2b2b2b;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
 
 @media all (max-width="1024") {
   .wrapper {

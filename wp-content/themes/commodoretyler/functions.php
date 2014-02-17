@@ -42,6 +42,7 @@ function commo_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 672, 372, true );
 	add_image_size( 'commo-full-width', 1038, 576, true );
+	add_image_size( 'work_thumb', 500, 300, true );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
@@ -106,6 +107,8 @@ function commo_scripts() {
 	wp_style_add_data( 'commo-ie', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'commo-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20131209', true );
+
+	wp_enqueue_style( 'commo-font', get_template_directory_uri() . '/css/commo.css' );
 }
 add_action( 'wp_enqueue_scripts', 'commo_scripts' );
 
@@ -209,3 +212,47 @@ function custom_post_types(){
   );
 }
 add_action( 'init', 'custom_post_types' );
+
+function portfolio_shortcode( $atts ) {
+  ob_start();
+  //extract( shortcode_atts() )
+  $portfolio_posts = new WP_Query('category_name=portfolio');
+  if( $portfolio_posts->have_posts() ) :
+  ?>
+  <div class="portfolio">
+  <?php
+    while( $portfolio_posts->have_posts() ) : $portfolio_posts->the_post();
+      $icon_meta = get_post_meta( $portfolio_posts->post->ID, 'skill_set' );
+  ?>
+    <div class="portfolio-entry clickable-splitter" id="portfolio-<?php echo $portfolio_posts->post->ID; ?>">
+      <h2 class="portfolio-title"><?php the_title(); ?></h2>
+
+      <?php if(has_post_thumbnail($portfolio_posts->post->ID)) : ?>
+        <div class="portfolio-thumb">
+        <?php the_post_thumbnail( 'work_thumb' ); ?>
+        </div><!-- .portfolio-thumb -->
+      <?php endif; ?>
+      <?php if(count($icon_meta)): ?>
+        <?php foreach($icon_meta as $icon): ?>
+          <ul class="skill-set-icons">
+            <li class="skill-set">
+              <span class="<?php echo $icon; ?>"></span>
+            </li>
+          </ul>
+        <?php endforeach; // skills icons ?>
+      <?php endif; // skills icons ?>
+
+      <div class="splitter" id="splitter-<?php $portfolio_posts->post->ID; ?>">
+        <?php // the gallery goes here ?>
+      </div><!-- .splitter -->
+  <?php endwhile; //posts ?>
+  </div><!-- .portfolio -->
+  <?php endif; // posts
+  wp_reset_query();
+  return ob_get_clean();
+}
+add_shortcode('portfolio', 'portfolio_shortcode');
+
+
+//add_action( 'wp_ajax_portfolio_post', 'portfolio_post_callback' );
+//add_action( 'wp_ajax_nopriv_portfolio_post', 'portfolio_post_callback' );

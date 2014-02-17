@@ -23,7 +23,7 @@
     $(window).bind("resize", doResize);
     doResize();
   }
-  $('#covers').coverSizer();
+  //$('#covers').coverSizer();
 
 
 

@@ -27,13 +27,17 @@ get_header(); ?>
 	<?php
 	  if ( $covers->have_posts() ):
 	    while( $covers->have_posts() ): $covers->the_post();
-	      $vast_shadow = get_post_meta($post->ID, 'vast-shadow-letter', true); ?>
-	      <div id="<?php echo $post->post_name; ?>" class="clearfix cover <?php echo $post->post_name; ?>">
+	      $vast_shadow = get_post_meta($post->ID, 'vast-shadow-letter', true);
+	      $cover_title = get_post_meta($post->ID, 'cover-title', true);
+	      ?>
+	      <div id="<?php echo $post->post_name; ?>" class="clearfix cover <?php echo $post->post_name . " " . $cover_title; ?>">
 	        <div class="wrapper">
 	          <span class="vast-shadow"><?php echo $vast_shadow; ?></span>
             <h1 class="cover-title"><?php the_title(); ?></h1>
 
-            <?php the_content(); ?>
+            <?php
+              the_content();
+              ?>
 	        </div><!-- .wrapper -->
         </div><!-- .cover -->
   <?php
