@@ -568,8 +568,8 @@ body {
 }
 .cover.what-do-you-do-here li {
   list-style: none;
-  width: 25%;
-  padding: 0 12px;
+  width: 33%;
+  padding: 0 2.5%;
   text-align: center;
   float: left;
   -webkit-box-sizing: border-box;

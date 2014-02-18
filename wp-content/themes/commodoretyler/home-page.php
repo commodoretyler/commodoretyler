@@ -32,7 +32,9 @@ get_header(); ?>
 	      ?>
 	      <div id="<?php echo $post->post_name; ?>" class="clearfix cover <?php echo $post->post_name . " " . $cover_title; ?>">
 	        <div class="wrapper">
+	          <?php if( $vast_shadow ) : ?>
 	          <span class="vast-shadow"><?php echo $vast_shadow; ?></span>
+            <?php endif; ?>
             <h1 class="cover-title"><?php the_title(); ?></h1>
 
             <?php

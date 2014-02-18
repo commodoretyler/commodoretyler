@@ -249,7 +249,6 @@ add_action( 'init', 'custom_post_types' );
 
 function portfolio_shortcode( $atts ) {
   ob_start();
-  //extract( shortcode_atts() )
   $portfolio_posts = new WP_Query('post_type=portfolio');
   if( $portfolio_posts->have_posts() ) :
   ?>
@@ -288,6 +287,19 @@ function portfolio_shortcode( $atts ) {
   return ob_get_clean();
 }
 add_shortcode('portfolio', 'portfolio_shortcode');
+
+function skillicon_shortcode( $atts ) {
+  ob_start();
+
+  extract( shortcode_atts( array(
+		'icon' => ''
+	), $atts ) );
+?>
+  <span class="skill-icon icon-<?php echo $icon; ?>"></span>
+<?php
+  return ob_get_clean();
+}
+add_shortcode( 'skillicon', 'skillicon_shortcode' );
 
 
 //add_action( 'wp_ajax_portfolio_post', 'portfolio_post_callback' );
