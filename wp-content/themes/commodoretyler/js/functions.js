@@ -6,9 +6,7 @@
  *
  */
 ( function( $ ) {
-	var body    = $( 'body' ),
-		_window = $( window );
-
+  var body    = $( 'body' ), _window = $( window );
 
   $.fn.coverSizer = function(){
     var _this = $(this);
@@ -19,7 +17,7 @@
     $(window).bind("resize", doResize);
     doResize();
   }
-  $('.tyler-moore').coverSizer();
+  //$('.tyler-moore').coverSizer();
 
 
 

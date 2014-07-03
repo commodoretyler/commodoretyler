@@ -23,32 +23,32 @@ get_header(); ?>
 ?>
 
 <div id="covers" class="main-content">
+  <?php
+    if ( $covers->have_posts() ):
+      while( $covers->have_posts() ): $covers->the_post();
+        $vast_shadow = get_post_meta($post->ID, 'vast-shadow-letter', true);
+        $cover_title = get_post_meta($post->ID, 'cover-title', true);
+  ?>
+  <div id="<?php echo $post->post_name; ?>" class="clearfix cover <?php echo $post->post_name . " " . $cover_title; ?>">
+    <div class="wrapper">
+      <?php if( $vast_shadow ) : ?>
+        <span class="vast-shadow">
+          <span class="left-ring"></span>
+          <span class="right-ring"></span>
+          <?php echo $vast_shadow; ?>
+        </span>
+      <?php endif; ?>
+      <h1 class="cover-title"><?php the_title(); ?></h1>
 
-	<?php
-	  if ( $covers->have_posts() ):
-	    while( $covers->have_posts() ): $covers->the_post();
-	      $vast_shadow = get_post_meta($post->ID, 'vast-shadow-letter', true);
-	      $cover_title = get_post_meta($post->ID, 'cover-title', true);
-	      ?>
-	      <div id="<?php echo $post->post_name; ?>" class="clearfix cover <?php echo $post->post_name . " " . $cover_title; ?>">
-	        <div class="wrapper">
-	          <?php if( $vast_shadow ) : ?>
-	          <span class="vast-shadow"><?php echo $vast_shadow; ?></span>
-            <?php endif; ?>
-            <h1 class="cover-title"><?php the_title(); ?></h1>
-
-            <?php
-              the_content();
-              ?>
-	        </div><!-- .wrapper -->
-        </div><!-- .cover -->
+      <?php the_content(); ?>
+    </div><!-- .wrapper -->
+  </div><!-- .cover -->
   <?php
       endwhile;
-	  endif;
-	?>
-	<?php get_sidebar( 'content' ); ?>
+    endif;
+  ?>
+  <?php get_sidebar( 'content' ); ?>
 </div><!-- #main-content -->
 
 <?php
-//get_sidebar( 'home-page' );
 get_footer();

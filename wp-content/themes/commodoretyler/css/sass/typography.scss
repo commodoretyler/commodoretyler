@@ -1,0 +1,64 @@
+/**
+ *
+ *  Typography
+ *
+ */
+html *, body {
+  font-family: $roboto;
+  font-size: 16px;
+}
+
+.vast-shadow {
+  font-family: 'Vast Shadow', 'Rockwell', serif;
+  color: #323232;
+  display: block;
+  width: 120px;
+  background: #ffffff;
+  vertical-align: middle;
+  text-align: center;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  border-radius: 200px;
+  font-size: 74px;
+  line-height: 120px;
+  margin: 0 auto 24px auto;
+  padding: 0;
+  position: relative;
+
+  .left-ring {
+    position: absolute;
+    background: transparent;
+    border: 10px solid $orange;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    width: 130px;
+    height: 130px;
+    z-index: 1;
+    top: -5px;
+    left: -5px;
+  }
+  .right-ring {
+    position: absolute;
+    background: transparent;
+    border: 10px solid rgba(202,60,27,1);
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    width: 130px;
+    height: 130px;
+    z-index: 2;
+    top: -5px;
+    left: -5px;
+    clip: rect(-5px, 130px, 130px, 65px);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $roboto_cond;
+}

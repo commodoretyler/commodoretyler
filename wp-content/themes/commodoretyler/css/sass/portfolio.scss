@@ -1,0 +1,48 @@
+/**
+ *
+ *  Portfolio Work Sample Styles
+ *
+ */
+.portfolio-entry {
+  width: 80%;
+  padding: 2em 1%;
+  margin: 3em auto;
+  border-bottom: 5px dotted #555555;
+}
+.portfolio-entry:last-child {
+  border: none;
+}
+.portfolio-entry .portfolio-thumb {
+  width: 100%;
+  border: 5px solid #ffffff;
+}
+.portfolio-entry .portfolio-thumb img {
+  width: 100%;
+  height: auto;
+}
+.portfolio-entry .skill-set-icons {
+  margin: 1em 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+.portfolio-entry .skill-set-icons .skill-set {
+  list-style: none;
+  display: inline-block;
+  width: 30px;
+  background: #ffffff;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 6px 0;
+  margin: 0 1em;
+  text-align: center;
+  color: #2b2b2b;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.portfolio-content {
+  width: 60%;
+  margin: 1em auto;
+  text-align: center;
+}

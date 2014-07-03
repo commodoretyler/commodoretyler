@@ -41,7 +41,7 @@ function commo_setup() {
 	// Enable support for Post Thumbnails, and declare two sizes.
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 672, 372, true );
-	add_image_size( 'commo-full-width', 1038, 576, true );
+	add_image_size( 'commo-full-width', 1400, 576, true );
 	add_image_size( 'work_thumb', 500, 300, true );
 
 
@@ -109,7 +109,8 @@ function commo_scripts() {
 
 	wp_enqueue_script( 'commo-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20131209', true );
 
-	wp_enqueue_style( 'commo-font', get_template_directory_uri() . '/css/commo.css' );
+        wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '20140703', true );
+
 }
 add_action( 'wp_enqueue_scripts', 'commo_scripts' );
 

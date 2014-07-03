@@ -1,0 +1,30 @@
+/**
+ *
+ *  Structure
+ *
+ */
+html,
+body {
+  width: 100%;
+}
+.site,
+.site-main,
+.main-content {
+}
+.cover {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.wrapper {
+  width: 980px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .wrapper {
+    width: 98%;
+  }
+}

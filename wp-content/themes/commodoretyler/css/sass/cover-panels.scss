@@ -1,0 +1,86 @@
+/**
+ *
+ *  Repeatable Cover Styles
+ *
+ */
+.cover {
+  min-height: 500px;
+  padding: 40px 0;
+
+  &:first-child {
+    padding-top: 180px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+    margin: .5em 0;
+  }
+  h2 {
+    font-size: 20px;
+    text-align: center;
+    font-weight: normal;
+    margin: .5em 0;
+  }
+  h3 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    margin: .5em 0;
+  }
+}
+
+/**
+ *
+ *  Specific Cover Styles
+ *
+ */
+.cover.tyler-moore {
+  background: #b95435 url('images/header.png') no-repeat center top;
+  background-size: 100% 100%;
+}
+.cover.tyler-moore h1,
+.cover.tyler-moore h2,
+.cover.tyler-moore h3 {
+  color: #ffffff;
+}
+
+.cover.what-do-you-do-here {
+  background: #c6c6c6;
+}
+.cover.what-do-you-do-here ul {
+  margin: 3em 0;
+  padding: 0;
+}
+.cover.what-do-you-do-here li {
+  list-style: none;
+  width: 33%;
+  padding: 0 2.5%;
+  text-align: center;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cover.skills .skill-icon {
+  font-size: 60px;
+  display: block;
+  text-align: center;
+  background: #ffffff;
+  padding: 45px 0;
+  width: 150px;
+  margin: 24px auto 16px;
+  -webkit-border-radius: 150px 150px 150px 150px;
+  -moz-border-radius: 150px 150px 150px 150px;
+  border-radius: 150px 150px 150px 150px;
+}
+
+.cover.experience {
+  background: #386CB4;
+}
+.cover.work {
+  background: #303030;
+  color: #ffffff;
+}
