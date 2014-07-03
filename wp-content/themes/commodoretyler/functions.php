@@ -255,7 +255,7 @@ function portfolio_shortcode( $atts ) {
   <div class="portfolio">
   <?php
     while( $portfolio_posts->have_posts() ) : $portfolio_posts->the_post();
-      $icon_meta = get_post_meta( $portfolio_posts->post->ID, 'skill_set' );
+      $icon = get_the_terms($post-ID, 'works');
   ?>
     <div class="portfolio-entry clickable-splitter" id="portfolio-<?php echo $portfolio_posts->post->ID; ?>">
       <h2 class="portfolio-title"><?php the_title(); ?></h2>
@@ -265,21 +265,21 @@ function portfolio_shortcode( $atts ) {
         <?php the_post_thumbnail( 'commo-full-width' ); ?>
         </div><!-- .portfolio-thumb -->
       <?php endif; ?>
-      <?php if(count($icon_meta)): ?>
-        <?php foreach($icon_meta as $icon): ?>
-          <ul class="skill-set-icons">
+      <?php if(count($icon)): ?>
+        <ul class="skill-set-icons">
+          <?php foreach($icon as $icon_code): ?>
             <li class="skill-set">
-              <span class="<?php echo $icon; ?>"></span>
+              <span class="icon-<?php echo $icon_code->name; ?>"></span>
             </li>
-          </ul>
-        <?php endforeach; // skills icons ?>
+          <?php endforeach; // skills icons ?>
+        </ul>
       <?php endif; // skills icons ?>
       <div class="portfolio-content">
         <?php the_content(); ?>
       </div>
       <div class="splitter" id="splitter-<?php $portfolio_posts->post->ID; ?>">
-        <?php // the gallery goes here ?>
       </div><!-- .splitter -->
+    </div>
   <?php endwhile; //posts ?>
   </div><!-- .portfolio -->
   <?php endif; // posts
