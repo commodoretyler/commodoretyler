@@ -29,6 +29,14 @@
     font-weight: normal;
     margin: .5em 0;
   }
+  
+  &.skills {
+    .skill-icon {
+      display: inline-block;
+      font-size: 60px;
+      margin: 24px auto;
+    }
+  }
 }
 
 /**
@@ -64,21 +72,19 @@
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-.cover.skills .skill-icon {
-  font-size: 60px;
-  display: block;
+
+.code-icon {
+  display: inline-block;
   text-align: center;
-  background: #ffffff;
-  padding: 45px 0;
-  width: 150px;
-  margin: 24px auto 16px;
-  -webkit-border-radius: 150px 150px 150px 150px;
-  -moz-border-radius: 150px 150px 150px 150px;
-  border-radius: 150px 150px 150px 150px;
+  margin: 0 12px 12px;
 }
 
 .cover.experience {
   background: #386CB4;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff;
 }
 .cover.work {
   background: #303030;

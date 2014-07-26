@@ -7326,6 +7326,11 @@ button.close {
  *  Structure
  *
  */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html,
 body {
   width: 100%; }
@@ -7348,7 +7353,7 @@ body {
  *  Typography
  *
  */
-html *, body {
+html, body {
   font-family: "Roboto", Helvetica, sans-serif;
   font-size: 16px; }
 
@@ -7402,6 +7407,12 @@ h5,
 h6 {
   font-family: "Roboto Condensed", Helvetica, sans-serif; }
 
+a {
+  color: #f26443;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
 /**
  *
  *  Header
@@ -7409,6 +7420,7 @@ h6 {
  */
 .site-header {
   position: fixed;
+  z-index: 100;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
   padding: 16px 0;
@@ -7435,12 +7447,18 @@ h6 {
       padding: 24px 0 0;
       text-indent: 0; }
       .site-header .site-navigation ul li {
-        list-style: none; }
+        list-style: none;
+        display: inline-block;
+        margin: 0 0 0 18px;
+        font-family: "Roboto Condensed", Helvetica, sans-serif;
+        font-weight: 400; }
         .site-header .site-navigation ul li a {
           color: #fff;
           text-decoration: none; }
           .site-header .site-navigation ul li a:hover {
-            text-decoration: none; }
+            text-decoration: none;
+            color: #f26443;
+            border-bottom: 5px solid #f26443; }
 
 /**
  *
@@ -7457,23 +7475,22 @@ h6 {
   width: 80%;
   padding: 0;
   text-align: center; }
-
-.contact-icons li {
-  text-align: center;
-  list-style: none;
-  font-size: 24px;
-  width: 50px;
-  padding: 13px 0;
-  line-height: 24px;
-  margin: 1em;
-  display: inline-block;
-  background: #a7482b;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px; }
-
-.contact-icons li a {
-  color: #fff; }
+  .contact-icons li {
+    text-align: center;
+    list-style: none;
+    font-size: 28px;
+    width: 50px;
+    padding: 13px 0;
+    line-height: 24px;
+    margin: 1em;
+    display: inline-block;
+    background: #a7482b;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px; }
+    .contact-icons li a {
+      color: #fff;
+      text-decoration: none; }
 
 /**
  *
@@ -7500,6 +7517,10 @@ h6 {
     font-size: 18px;
     font-weight: normal;
     margin: .5em 0; }
+  .cover.skills .skill-icon {
+    display: inline-block;
+    font-size: 60px;
+    margin: 24px auto; }
 
 /**
  *
@@ -7533,20 +7554,17 @@ h6 {
   -o-box-sizing: border-box;
   box-sizing: border-box; }
 
-.cover.skills .skill-icon {
-  font-size: 60px;
-  display: block;
+.code-icon {
+  display: inline-block;
   text-align: center;
-  background: #ffffff;
-  padding: 45px 0;
-  width: 150px;
-  margin: 24px auto 16px;
-  -webkit-border-radius: 150px 150px 150px 150px;
-  -moz-border-radius: 150px 150px 150px 150px;
-  border-radius: 150px 150px 150px 150px; }
+  margin: 0 12px 12px; }
 
 .cover.experience {
-  background: #386CB4; }
+  background: #386CB4;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff; }
 
 .cover.work {
   background: #303030;
@@ -7558,44 +7576,43 @@ h6 {
  *
  */
 .portfolio-entry {
-  width: 80%;
+  width: 100%;
   padding: 2em 1%;
   margin: 3em auto;
   border-bottom: 5px dotted #555555; }
-
-.portfolio-entry:last-child {
-  border: none; }
-
-.portfolio-entry .portfolio-thumb {
-  width: 100%;
-  border: 5px solid #ffffff; }
-
-.portfolio-entry .portfolio-thumb img {
-  width: 100%;
-  height: auto; }
-
-.portfolio-entry .skill-set-icons {
-  margin: 1em 0;
-  padding: 0;
-  width: 100%;
-  text-align: center; }
-
-.portfolio-entry .skill-set-icons .skill-set {
-  list-style: none;
-  display: inline-block;
-  width: 30px;
-  background: #ffffff;
-  font-size: 18px;
-  line-height: 18px;
-  padding: 6px 0;
-  margin: 0 1em;
-  text-align: center;
-  color: #2b2b2b;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px; }
-
-.portfolio-content {
-  width: 60%;
-  margin: 1em auto;
-  text-align: center; }
+  .portfolio-entry:last-child {
+    border: none; }
+  .portfolio-entry .portfolio-title {
+    font-size: 28px;
+    text-align: left; }
+  .portfolio-entry .portfolio-thumb {
+    max-width: 40%;
+    height: auto;
+    float: left;
+    border: 5px solid #ffffff; }
+    .portfolio-entry .portfolio-thumb img {
+      width: 100%;
+      height: auto; }
+  .portfolio-entry .skill-set-icons {
+    margin: 1em 0;
+    padding: 0;
+    width: 100%;
+    text-align: left; }
+    .portfolio-entry .skill-set-icons .skill-set {
+      list-style: none;
+      display: inline-block;
+      width: 30px;
+      background: #ffffff;
+      font-size: 18px;
+      line-height: 18px;
+      padding: 6px 0;
+      margin: 0 1em;
+      text-align: center;
+      color: #2b2b2b;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 50px; }
+  .portfolio-entry .portfolio-content {
+    width: 55%;
+    margin: 0 0 2em 2%;
+    float: left; }

@@ -3,7 +3,7 @@
  *  Typography
  *
  */
-html *, body {
+html, body {
   font-family: $roboto;
   font-size: 16px;
 }
@@ -61,4 +61,13 @@ h4,
 h5,
 h6 {
   font-family: $roboto_cond;
+}
+
+a {
+  color: $orange;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: none;
+  }
 }

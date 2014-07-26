@@ -258,25 +258,27 @@ function portfolio_shortcode( $atts ) {
     while( $portfolio_posts->have_posts() ) : $portfolio_posts->the_post();
       $icon = get_the_terms($post-ID, 'works');
   ?>
-    <div class="portfolio-entry clickable-splitter" id="portfolio-<?php echo $portfolio_posts->post->ID; ?>">
-      <h2 class="portfolio-title"><?php the_title(); ?></h2>
+    <div class="portfolio-entry clickable-splitter clearfix" id="portfolio-<?php echo $portfolio_posts->post->ID; ?>">
 
       <?php if(has_post_thumbnail($portfolio_posts->post->ID)) : ?>
         <div class="portfolio-thumb">
-        <?php the_post_thumbnail( 'commo-full-width' ); ?>
+        <?php the_post_thumbnail( 'large' ); ?>
         </div><!-- .portfolio-thumb -->
       <?php endif; ?>
-      <?php if(count($icon)): ?>
-        <ul class="skill-set-icons">
-          <?php foreach($icon as $icon_code): ?>
-            <li class="skill-set">
-              <span class="icon-<?php echo $icon_code->name; ?>"></span>
-            </li>
-          <?php endforeach; // skills icons ?>
-        </ul>
-      <?php endif; // skills icons ?>
       <div class="portfolio-content">
+        <h2 class="portfolio-title"><?php the_title(); ?></h2>
+        
         <?php the_content(); ?>
+        
+        <?php if(count($icon)): ?>
+          <ul class="skill-set-icons">
+            <?php foreach($icon as $icon_code): ?>
+              <li class="skill-set">
+                <span class="icon-<?php echo $icon_code->name; ?>"></span>
+              </li>
+            <?php endforeach; // skills icons ?>
+          </ul>
+        <?php endif; // skills icons ?>
       </div>
       <div class="splitter" id="splitter-<?php $portfolio_posts->post->ID; ?>">
       </div><!-- .splitter -->
@@ -301,6 +303,27 @@ function skillicon_shortcode( $atts ) {
   return ob_get_clean();
 }
 add_shortcode( 'skillicon', 'skillicon_shortcode' );
+
+
+function skill_percentage_shortcode( $atts ) {
+  ob_start();
+  
+  extract( shortcode_atts( array(
+    'percentage' => ''
+  ), $atts ) );
+  
+  ?>
+  <div class="skill-percentage-bar">
+    <span class="bounds">
+      <span class="percentage" style="width:<?php echo $atts['percentage']; ?>%;"></span>
+    </span>
+    <span class="perc-text">
+      <?php echo $atts['percentage']; ?>%
+    </span>
+  </div>
+  <?php
+}
+add_shortcode( 'skillpercetage', 'skill_percentage_shortcode' );
 
 
 //add_action( 'wp_ajax_portfolio_post', 'portfolio_post_callback' );

@@ -5,6 +5,7 @@
  */
 .site-header {
   position: fixed;
+  z-index: 100;
   width: 100%;
   background: rgba(0,0,0,.3);
   padding: 16px 0;
@@ -38,6 +39,10 @@
 
       li {
         list-style: none;
+        display: inline-block;
+        margin: 0 0 0 18px;
+        font-family: $roboto_cond;
+        font-weight: 400;
 
         a {
           color: #fff;
@@ -45,6 +50,8 @@
 
           &:hover {
             text-decoration: none;
+            color: $orange;
+            border-bottom: 5px solid $orange;
           }
         }
       }
